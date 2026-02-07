@@ -7,8 +7,8 @@
 - 例：MVPのためwait許容。後で条件待ちに置換する。
 
 ## 対象（どれを触るか）
-- docs/API.md: （読む / 変更する）
-- docs/MOCK_DATA.md: （読む / 変更する）
+- docs/api.md: （読む / 変更する）
+- docs/mock.md: （読む / 変更する）
 - 対象Flow: Flow-xxx
 - 影響するPrimitive: opA, opB
 
@@ -29,7 +29,8 @@
 1. 変更前の関連箇所を引用（どこを直すか明確化）
 2. 最小差分の実装
 3. 動作確認方法（Flow実行 or 手動チェック）を提示
-4. 必要なら docs/API.md / docs/MOCK_DATA.md / Changelog 更新
+4. 必要なら docs/api.md / docs/mock.md / Changelog 更新
+   - ※パスは `docs/api.md` / `docs/mock.md` に統一（大小文字ゆれを避ける）
 
 ## 出力してほしいもの
 - 変更差分の説明（箇条書き）

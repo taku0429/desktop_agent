@@ -12,7 +12,7 @@
 - 成功条件（回数/再現性/ログ）：
 
 ## あなたの作業ルール
-- docs/API.md が正本。Primitive追加/変更は docs を先に更新。
+- docs/api.md が正本。Primitive追加/変更は docs を先に更新。
 - FlowはPrimitive配列として表現し、RunnerはFlowを逐次実行するだけにする。
 - 失敗時ログ（step_index/op/error_code）は必須。
 
@@ -23,8 +23,8 @@
 - リスク（座標ズレ/ウィンドウ検出/タイミングなど）
 
 ### 2) docs更新（必要なら）
-- docs/API.md に追加/変更する Primitive 定義（input/output/errors）
-- docs/MOCK_DATA.md に追加する mock ケース（正常/失敗/境界）
+- docs/api.md に追加/変更する Primitive 定義（input/output/errors）
+- docs/mock.md に追加する mock ケース（正常/失敗/境界）
 
 ### 3) 実装
 - 最小差分で実装

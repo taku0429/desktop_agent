@@ -1,13 +1,22 @@
-````md
-# API.md — Runner Primitive API (v0 / MVP)
+# api.md — Runner Primitive API (v0 / MVP)
 
-> 目的：UI から Runner を呼び出す「操作プリミティブ(API)」の契約(Contract)を固定し、MVPで動かしつつ後から差し替え・改良できるようにする。  
-> スキーマは **JSON Schema (draft 2020-12)** を前提にし、必要なら **OpenAPI 3.1** にもそのまま寄せられる形にする。 :contentReference[oaicite:0]{index=0}
+目的：UI から Runner を呼び出す「操作プリミティブ(API)」の契約(Contract)を固定し、MVPで動かしつつ後から差し替え・改良できるようにする。  
+スキーマは **JSON Schema (draft 2020-12)** を前提にし、必要なら **OpenAPI 3.1** にも寄せられる形にする。
 
 ---
 
+## 目次
+
+- [0. 原則（このAPIの守るべきこと）](#0-原則このapiの守るべきこと)
+- [1. データモデル（共通）](#1-データモデル共通)
+- [2. Primitive 一覧（v0 / MVP）](#2-primitive-一覧v0--mvp)
+- [3. Error Code Dictionary（v0）](#3-error-code-dictionaryv0)
+- [4. ログ仕様（最低限）](#4-ログ仕様最低限)
+- [5. JSON Schema（draft 2020-12）※必要に応じて使う](#5-json-schemadraft-2020-12必要に応じて使う)
+- [6. 将来拡張（v1候補）](#6-将来拡張v1候補)
+
 ## 0. 原則（このAPIの守るべきこと）
-- **docs/API.md が正本**。実装は必ず追従する（Contract-first）。
+- **docs/api.md が正本**。実装は必ず追従する（Contract-first）。
 - UI は Runner に **Command 配列(Flow)** を渡すだけ。Runner は逐次実行して結果を返す。
 - MVPでは `wait` を許容。後で「条件待ち」「画像/OCR判定」等に改善する。
 - 失敗しても原因追跡できるよう **error_code / step_index / op** を必ず返す。
@@ -23,7 +32,7 @@
   "op": "app.launch",
   "params": { "app_id": "C:\\path\\app.exe", "args": [] }
 }
-````
+```
 
 * `id`: string（任意だが推奨。ログ追跡用）
 * `op`: string（Primitive名）
@@ -255,7 +264,7 @@ Runnerは各 StepResult を必ず生成し、失敗時でも `results` を返す
 
 ## 5. JSON Schema（draft 2020-12）※必要に応じて使う
 
-> スキーマで検証できるようにしておくと、API改良時に壊れにくい。 ([json-schema.org][1])
+> スキーマで検証できるようにしておくと、API改良時に壊れにくい。
 
 ### 5.1 Command Schema（最小）
 

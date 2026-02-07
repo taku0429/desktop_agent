@@ -1,10 +1,18 @@
-````md
-# MOCK_DATA.md — Runner Primitive API Mock Data (v0 / MVP)
+# mock.md — Runner Primitive API Mock Data (v0 / MVP)
 
-> 目的：docs/API.md の Primitive 契約に沿って、UI/Runnerの開発・テストに使える **固定のモックデータ** を用意する。  
-> 方針：**代表ケース（正常/失敗/境界）を固定IDで管理**し、必要なら JSON Schema から自動生成もできる形にする（json-schema-faker など）。 :contentReference[oaicite:0]{index=0}
+目的：`docs/api.md` の Primitive 契約に沿って、UI/Runnerの開発・テストに使える **固定のモックデータ** を用意する。  
+方針：**代表ケース（正常/失敗/境界）を固定IDで管理**し、必要なら JSON Schema から自動生成もできる形にする（例：json-schema-faker）。
 
 ---
+
+## 目次
+
+- [0. ルール](#0-ルール)
+- [1. 共通モック（環境前提）](#1-共通モック環境前提)
+- [2. Command（ステップ）モック](#2-commandステップモック)
+- [3. Flow（手順）モック](#3-flow手順モック)
+- [4. RunResult（戻り値）モック](#4-runresult戻り値モック)
+- [5. （任意）スキーマから自動生成したい場合](#5-任意スキーマから自動生成したい場合)
 
 ## 0. ルール
 - モックは **ケースID固定**（テストが安定する）
@@ -42,7 +50,7 @@
     "args": []
   }
 }
-````
+```
 
 ---
 
@@ -179,8 +187,7 @@
 
 ## 5. （任意）スキーマから自動生成したい場合
 
-* JSON Schema からフェイクデータ生成：**json-schema-faker** ([JSON Schema Faker][1])
-* OpenAPI から **モック + バリデーション**：**Prism**（HTTP API化する場合） ([Stoplight][2])
+* JSON Schema からフェイクデータ生成：**json-schema-faker**
+* OpenAPI から **モック + バリデーション**：**Prism**（HTTP API化する場合）
 
 ---
-
